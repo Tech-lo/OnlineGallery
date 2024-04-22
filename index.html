@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SereneScape</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" type="text/css" href="index.css" />
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="index.html">SereneScape</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto navbar-nav-left">
+          <li class="nav-item">
+            <a class="nav-link" href="home.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="gal.html">Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="login.html">Feedback</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="accountprofile.html"><i class="fas fa-user profile-icon"></i>Profile</a>
+          </li>
+        </ul>
+        </div>
+    </nav>
+  </header>
+  <main>
+    <section class="sneakpeak">
+      <div id="carouselExample" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="20221023_142138.jpg" class="d-block w-100" alt="Sneakpeak Image 1">
+            <div class="carousel-caption">
+              <p>Mt Rohtang at Manali</p>
+              <span class="fullscreen-icon" onclick="openFullscreen(0)">&#x26F6;</span>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="20231230_110413.jpg" class="d-block w-100" alt="Sneakpeak Image 2">
+            <div class="carousel-caption">
+              <p>Swayambhunath Temple</p>
+              <span class="fullscreen-icon" onclick="openFullscreen(1)">&#x26F6;</span>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="20210912_184054.jpg" class="d-block w-100" alt="Sneakpeak Image 3">
+            <div class="carousel-caption">
+              <p>Lakeside night scenic beauty</p>
+              <span class="fullscreen-icon" onclick="openFullscreen(2)">&#x26F6;</span>
+            </div>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExample" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </section>
+    <section class="about">
+      <h2>Welcome to SereneScape</h2>
+      <p>
+        Welcome to my online gallery, a curated collection of awe-inspiring moments captured during my encounters with the beauty of nature. Each photograph is a testament to the profound connection I've felt with the world around me. Rather than allowing these cherished images to remain scattered in the confines of my phone gallery, I've embarked on a journey to share them with you in a dedicated online space. This digital gallery serves as a window into my perspective, a visual narrative of the moments when nature left me breathless. The intention is simple to create a virtual haven where both you and I can immerse ourselves in the serenity and wonder that nature graciously offers. As you explore this collection, envision the tranquility of a sunset, the dance of light on leaves, and the intricate details of flora and fauna. These photographs are not just images; they are a celebration of the beauty that surrounds us. Join me in this digital venture, where my passion for photography meets the boundless wonders of the natural world. May you find joy, inspiration, and a moment of respite in the visual symphony of nature displayed here. Thank you for sharing in this visual journey with me. Whether you're looking for a beautiful backdrop for a photoshoot or simply seeking a moment of connection with nature, I hope this gallery provides the serenity and inspiration you seek.
+      </p>
+    </section>
+  </main>
+  <footer>
+    <span>&copy;TY</span>
+    <a href="https://www.instagram.com" class="instagram-icon" target="_blank" rel="noopener noreferrer">
+      <i class="fab fa-instagram"></i>
+    </a>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+  <script>
+    function openFullscreen(index) {
+      var modal = document.createElement('div');
+      modal.id = 'fullscreen-modal';
+      modal.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1001;
+      `;
+
+      var img = document.createElement('img');
+      img.src = document.querySelectorAll('.carousel-item img')[index].src;
+      img.alt = 'Fullscreen Image';
+      img.style.cssText = `
+        max-width: 100%;
+        max-height: 100%;
+      `;
+
+      var closeIcon = document.createElement('span');
+      closeIcon.innerHTML = '&#x2715;';
+      closeIcon.className = 'close-icon';
+      closeIcon.style.cssText = `
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 30px;
+        color: white;
+        cursor: pointer;
+        z-index: 1002;
+      `;
+      closeIcon.onclick = closeFullscreen;
+
+      modal.appendChild(img);
+      modal.appendChild(closeIcon);
+      document.body.appendChild(modal);
+    }
+
+    function closeFullscreen() {
+      var modal = document.getElementById('fullscreen-modal');
+      if (modal) {
+        modal.parentNode.removeChild(modal);
+      }
+    }
+  </script>
+</body>
+
+</html>
+
+

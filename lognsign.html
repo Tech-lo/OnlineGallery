@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="style.css" />
+  <title>Form</title>
+  <link rel="stylesheet" type="text/css" href="lognsign.css" />
+</head>
+<body>
+  <div class="login-wrap">
+    <div class="login-html">
+      <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+      <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+      <div class="login-form">
+        <!-- Sign In HTML -->
+<div class="sign-in-htm">
+  <div class="group">
+    <label for="user-signin" class="label">Username</label>
+    <input id="user-signin" type="text" class="input">
+  </div>
+  <div class="group">
+    <label for="pass-signin" class="label">Password</label>
+    <input id="pass-signin" type="password" class="input" data-type="password">
+  </div>
+  <div class="group">
+    <input type="submit" class="button" value="Sign In" onclick="signIn()">
+  </div>
+</div>
+
+<!-- Sign Up HTML -->
+<div class="sign-up-htm">
+  <div class="group">
+    <label for="user-signup" class="label">Username</label>
+    <input id="user-signup" type="text" class="input">
+  </div>
+  <div class="group">
+    <label for="pass-signup" class="label">Password</label>
+    <input id="pass-signup" type="password" class="input" data-type="password">
+  </div>
+  <div class="group">
+    <label for="email-signup" class="label">Email Address</label>
+    <input id="email-signup" type="text" class="input">
+  </div>
+  <div class="group">
+    <input type="submit" class="button" value="Sign Up" onclick="signUp()">
+  </div>
+</div>
+          <div class="hr"></div>
+          <div class="foot-lnk">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function signIn() {
+      var username = document.getElementById("user-signin").value;
+      var password = document.getElementById("pass-signin").value;
+    
+      if (username && password) {
+        localStorage.setItem("username", username);
+        localStorage.setItem("password", password);
+        redirectToMain();
+      } else {
+        alert("Please enter username and password.");
+      }
+    }
+  
+    function signUp() {
+      var username = document.getElementById("user-signup").value;
+      var password = document.getElementById("pass-signup").value;
+      var email = document.getElementById("email-signup").value;
+      
+      if (username && password && email) {
+        // Save credentials in localStorage
+        localStorage.setItem("username", username);
+        localStorage.setItem("password", password);
+  
+        redirectToMain();
+      } else {
+        alert("Please enter username, password, and email.");
+      }
+    }
+  
+    function redirectToMain() {
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>

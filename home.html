@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Page</title>
+  <link rel="stylesheet" type="text/css" href="home.css" />
+</head>
+<body>
+  <h1>Welcome to my Online Gallery</h1>
+  <p>Please sign up or log in to view our gallery.</p>
+  <button id="signupBtn">Sign Up</button>
+  <button id="loginBtn">Log In</button>
+  <button id="backBtn">Back</button>
+  <script>
+    document.getElementById('signupBtn').addEventListener('click', function() {
+      window.location.href = 'lognsign.html';
+    });
+
+    document.getElementById('loginBtn').addEventListener('click', function() {
+      window.location.href = 'lognsign.html';
+    });
+
+    document.getElementById('backBtn').addEventListener('click', function() {
+      window.location.href = 'index.html';
+    });
+  </script>
+</body>
+</html>
